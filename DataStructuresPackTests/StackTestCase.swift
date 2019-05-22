@@ -33,9 +33,9 @@ class StackTestCase: XCTestCase {
     }
     
     
-//    func test_PopMethod(){
-//        stack.pop()
-//
-//    }
+    func test_isEmpty(){
+        XCTAssertFalse(stack.isEmpty)
+
+    }
 
 }

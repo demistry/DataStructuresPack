@@ -12,6 +12,9 @@ import Foundation
 
 struct Stack<Element>{
     private var storage : [Element] = []
+    var isEmpty : Bool{
+        return peek() == nil
+    }
     
     mutating func push(_ newElement : Element){
         storage.append(newElement)
@@ -25,6 +28,8 @@ struct Stack<Element>{
     func peek()-> Element?{
         return storage.last
     }
+    
+    
     
 }
 
