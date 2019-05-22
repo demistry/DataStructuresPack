@@ -10,7 +10,11 @@ import Foundation
 
 
 
-struct Stack<Element>{
+struct Stack<Element : Equatable> : Equatable{
+//    static func == (lhs: Stack<Element>, rhs: Stack<Element>) -> Bool {
+//        return lhs == rhs
+//    }
+    
     private var storage : [Element] = []
     var isEmpty : Bool{
         return peek() == nil
@@ -45,8 +49,12 @@ extension Stack : CustomStringConvertible{ //used for debugging purposes to prov
     var description: String {
         return storage.map{"\($0)"}.joined(separator: " ")
     }
-    
-    
+}
+
+extension Stack : ExpressibleByArrayLiteral{
+    init(arrayLiteral elements: Element...) {
+        storage = elements
+    }
 }
 
 

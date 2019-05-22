@@ -39,7 +39,13 @@ class StackTestCase: XCTestCase {
     }
     
     func test_Initialization(){
-        XCTAssertEqual(Stack([1,2,3,4]).description, stack.description)
+        let array = [1,2,3,4]
+        XCTAssertEqual(Stack(array),stack)
+    }
+    
+    func test_ArrayLiteral(){
+        let stack : Stack = ["Boy", "Girl", "Man"]
+        XCTAssertEqual(stack, ["Boy", "Girl", "Man"])
     }
 
 }
