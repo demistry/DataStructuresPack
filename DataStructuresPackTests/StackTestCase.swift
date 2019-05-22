@@ -37,5 +37,9 @@ class StackTestCase: XCTestCase {
         XCTAssertFalse(stack.isEmpty)
 
     }
+    
+    func test_Initialization(){
+        XCTAssertEqual(Stack([1,2,3,4]).description, stack.description)
+    }
 
 }

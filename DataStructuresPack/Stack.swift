@@ -16,6 +16,14 @@ struct Stack<Element>{
         return peek() == nil
     }
     
+    init() {
+        
+    }
+    
+    init(_ elements : [Element]) {
+        storage = elements
+    }
+    
     mutating func push(_ newElement : Element){
         storage.append(newElement)
     }
