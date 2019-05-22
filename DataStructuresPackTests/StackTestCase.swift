@@ -28,6 +28,10 @@ class StackTestCase: XCTestCase {
         XCTAssertEqual(stack.pop(), 4)
     }
     
+    func test_Peek(){
+        XCTAssertEqual(stack.peek(), 4)
+    }
+    
     
 //    func test_PopMethod(){
 //        stack.pop()

@@ -22,6 +22,10 @@ struct Stack<Element>{
         return storage.popLast()
     }
     
+    func peek()-> Element?{
+        return storage.last
+    }
+    
 }
 
 extension Stack : CustomStringConvertible{ //used for debugging purposes to provide a customized description
