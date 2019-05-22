@@ -21,8 +21,17 @@ class StackTestCase: XCTestCase {
     }
     
     func test_StackDescription(){
-        XCTAssertEqual(stack.description, "jhghj")
+        XCTAssertEqual(stack.description, "1 2 3 4")
     }
     
+    func test_Pop(){
+        XCTAssertEqual(stack.pop(), 4)
+    }
+    
+    
+//    func test_PopMethod(){
+//        stack.pop()
+//
+//    }
 
 }

@@ -17,6 +17,11 @@ struct Stack<Element>{
         storage.append(newElement)
     }
     
+    @discardableResult //to remove warnings when result of method isnt used
+    mutating func pop()->Element?{
+        return storage.popLast()
+    }
+    
 }
 
 extension Stack : CustomStringConvertible{ //used for debugging purposes to provide a customized description
