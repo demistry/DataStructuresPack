@@ -47,7 +47,7 @@ struct Stack<Element : Equatable> : Equatable{
 
 extension Stack : CustomStringConvertible{ //used for debugging purposes to provide a customized description
     var description: String {
-        return storage.map{"\($0)"}.joined(separator: " ")
+        return storage.map{"\($0)"}.reversed().joined(separator: " ")
     }
 }
 
