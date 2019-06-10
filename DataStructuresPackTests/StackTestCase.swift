@@ -12,7 +12,6 @@ import XCTest
 class StackTestCase: XCTestCase {
     var stack =  Stack<Int>()
     
-    
     override func setUp() {
         stack.push(1)
         stack.push(2)
@@ -35,7 +34,6 @@ class StackTestCase: XCTestCase {
     
     func test_isEmpty(){
         XCTAssertFalse(stack.isEmpty)
-
     }
     
     func test_Initialization(){
@@ -47,5 +45,15 @@ class StackTestCase: XCTestCase {
         let stack : Stack = ["Boy", "Girl", "Man"]
         XCTAssertEqual(stack, ["Boy", "Girl", "Man"])
     }
-
+    
+    func test_Parethesis(){
+        XCTAssertTrue(ParethesisCheck.shared.checkParenthesis(string: "()"))
+    }
+    func test_Parethesis2(){
+        XCTAssertTrue(ParethesisCheck.shared.checkParenthesis(string: "([])[]({})"))
+    }
+    func test_Parethesis3(){
+        XCTAssertTrue(ParethesisCheck.shared.checkParenthesis(string: "([{]})"))
+    }
+    
 }
