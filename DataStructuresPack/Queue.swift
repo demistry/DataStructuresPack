@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Queue{
+protocol QueueProtocol{
     associatedtype Element
     
     mutating func enqueue(_ element : Element)
@@ -21,7 +21,7 @@ protocol Queue{
 }
 
 
-class QueueStack<Element> : Queue{
+class Queue<Element> : QueueProtocol{
     var peek: Element?{
         get{
             return storage.first
@@ -45,7 +45,33 @@ class QueueStack<Element> : Queue{
            return storage.isEmpty
         }
     }
+}
+
+struct QueueStack<T> : QueueProtocol{
     
+    private var enqueueStack : [T] = []
+    private var dequeueStack : [T] = []
+    mutating func enqueue(_ element: T) {
+        enqueueStack.append(element)
+    }
+    
+    @discardableResult
+    mutating func dequeue() -> T?{
+        if dequeueStack.isEmpty{
+            dequeueStack = enqueueStack.reversed()
+            enqueueStack.removeAll()
+        }
+        
+        return dequeueStack.popLast()
+    }
+    
+    var isEmpty: Bool{
+        return enqueueStack.isEmpty && dequeueStack.isEmpty
+    }
+    
+    var peek: Element?{
+        return !dequeueStack.isEmpty ? dequeueStack.last : enqueueStack.first
+    }
     
     
 }

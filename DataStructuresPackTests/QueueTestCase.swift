@@ -11,19 +11,25 @@ import XCTest
 
 class QueueTestCase: XCTestCase {
 
-    var queue = QueueStack<String>()
+    var queue = Queue<String>()
+    var queueStack = QueueStack<String>()
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         queue.enqueue("Puppet")
         queue.enqueue("Slyer")
         queue.enqueue("Last one")
+        
+        
+        queueStack.enqueue("Puppet")
+        queueStack.enqueue("Slyer")
+        queueStack.enqueue("Last one")
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func test_Enqueue(){
+    func test_EnqueueArray(){
         XCTAssertEqual(queue.peek!, "Puppet")
     }
     
@@ -31,5 +37,13 @@ class QueueTestCase: XCTestCase {
         queue.dequeue()
         XCTAssertEqual(queue.peek!, "Slyer")
     }
+    
+    func test_enqueueStack(){
+        XCTAssertEqual(queueStack.peek!, "Puppet")
+    }
 
+    func test_dequeueStack(){
+        queueStack.dequeue()
+        XCTAssertEqual(queueStack.peek!, "Slyer")
+    }
 }
