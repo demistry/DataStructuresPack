@@ -26,7 +26,6 @@ class ParethesisCheck{
                 let _ = lifo.popLast()
             }
         }
-        
         return lifo.isEmpty
     }
 }
